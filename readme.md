@@ -11,9 +11,11 @@ The file of youtube links can then be passed to other applications for further p
 
 ## Install
 
+## Prerequisites
+Lastest [node.js](https://nodejs.org)
+
 ### Get the scripts
 ```
-Install latest node.js
 git clone https://github.com/benrhughes/mastosongtube.git
 cd mastosongtube
 npm install
