@@ -35,16 +35,16 @@ const USERNAME = 'YOURUSERNAME';
 ```
 
 ## Running
-There are two scripts; the first to extract data from Mastondon, the second to extra data from song.link. Both store their progress in a temporary file, so if the process is interrupted you can pick it up from where you were.
+There are two scripts; the first to extract data from Mastodon, the second to extra data from song.link. Both store their progress in a temporary file, so if the process is interrupted you can pick it up from where you were.
 
 First, run `get-masto-songlink.js`:
 ```
-node .\get-masto-songlink.js
+node get-masto-songlink.js
 ```
 
 Then, run `get-songlink-yt.js`:
 ```
-node .\get-songlink-yt.js
+node get-songlink-yt.js
 ```
 
 An `output` directory will be created, which will contain:
