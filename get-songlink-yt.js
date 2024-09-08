@@ -16,10 +16,10 @@ function sleep(ms) {
 
 async function fetchYouTubeLinks(songLinks) {
     console.log("Fetching YouTube links from song.link pages...");
-    for (; progress.index < songLinks.length; progress.index++) {
-        console.log(`Processing song.link ${progress.index + 1} of ${songLinks.length}`)
-        const link = songLinks[progress.index];
-        try {
+    try {
+        for (; progress.index < songLinks.length; progress.index++) {
+            console.log(`Processing song.link ${progress.index + 1} of ${songLinks.length}`)
+            const link = songLinks[progress.index];
             const response = await axios.get(link, {
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
@@ -39,9 +39,9 @@ async function fetchYouTubeLinks(songLinks) {
             saveProgress();
             // Sleep for 5 second between requests
             await sleep(5000);
-        } catch (error) {
-            console.error(`Error fetching ${link}: ${error.message}`);
         }
+    } catch (error) {
+        console.error(`Error fetching ${link}: ${error.message}`);
     }
 }
 

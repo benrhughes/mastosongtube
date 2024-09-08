@@ -4,11 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 // Mastodon instance URL and username
-const MASTODON_INSTANCE_URL = 'https://YOURSERVER';
-const USERNAME = 'YOURUSERNAME'; 
-
+let MASTODON_INSTANCE_URL = 'https://YOURSERVER';
+let USERNAME = 'YOURUSERNAME'; 
 // Mastodon access token (create an app in your Mastodon instance to get this token)
-const ACCESS_TOKEN = 'YOURTOKEN';
+let ACCESS_TOKEN = 'YOURTOKEN';
 
 // Output directory and intermediate file
 const OUTPUT_DIR = path.join(__dirname, 'output');
@@ -16,7 +15,7 @@ const INTERMEDIATE_FILE = path.join(OUTPUT_DIR, 'song_links.txt');
 const PROGRESS_FILE = path.join(OUTPUT_DIR, 'masto_progress.json');
 
 // Initialize Mastodon API
-const M = new Mastodon({
+let M = new Mastodon({
     access_token: ACCESS_TOKEN,
     api_url: `${MASTODON_INSTANCE_URL}/api/v1/`,
 });
@@ -84,9 +83,25 @@ function writeLinksToFile(links) {
     fs.writeFileSync(INTERMEDIATE_FILE, links.join('\n'), 'utf8');
 }
 
+function loadConfig() {
+    if (fs.existsSync('config.json')) {
+        const data = fs.readFileSync('config.json', 'utf8');
+        config = JSON.parse(data);
+        MASTODON_INSTANCE_URL = config.server;
+        USERNAME = config.username;
+        ACCESS_TOKEN = config.token; 
+
+        M = new Mastodon({
+            access_token: ACCESS_TOKEN,
+            api_url: `${MASTODON_INSTANCE_URL}/api/v1/`,
+        });
+    }
+} 
 
 async function main() {
     try {
+        loadConfig();
+
         // Ensure the output directory exists
         if (!fs.existsSync(OUTPUT_DIR)) {
             fs.mkdirSync(OUTPUT_DIR, { recursive: true });
