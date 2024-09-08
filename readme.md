@@ -13,7 +13,8 @@ You can then use this youtube links on other applications.
 
 ### Get the scripts
 ```
-git clone <url> 
+Install latest node.js
+git clone https://github.com/benrhughes/mastosongtube.git
 cd mastosongtube
 npm install
 ```
@@ -51,3 +52,6 @@ An `output` directory will be created, which will contain:
 - songlink_progress.json : the progress file for the second script
 - song_links.txt : a list of extracted song.link urls
 - youtube_links.txt: a list of youtube urls
+
+### NB
+If you want to change the account or otherwise start from scratch, delete the `output` folder - otherwise the cached data from the previous run will be used.
