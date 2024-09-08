@@ -7,7 +7,7 @@ For a given Mastodon account, these scripts:
 - for each song.link link, find any youtube links
 - add the youtube links to a text file 
 
-You can then use this youtube links on other applications.
+The file of youtube links can then be passed to other applications for further processing.
 
 ## Install
 
