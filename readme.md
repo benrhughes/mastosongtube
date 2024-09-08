@@ -11,7 +11,7 @@ The file of youtube links can then be passed to other applications for further p
 
 ## Install
 
-## Prerequisites
+### Prerequisites
 Lastest [node.js](https://nodejs.org)
 
 ### Get the scripts
