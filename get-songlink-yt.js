@@ -37,8 +37,8 @@ async function fetchYouTubeLinks(songLinks) {
             });
 
             saveProgress();
-            // Sleep for 5 second between requests
-            await sleep(5000);
+            // Sleep for 10 second between requests
+            await sleep(10000);
         }
     } catch (error) {
         console.error(`Error fetching ${link}: ${error.message}`);

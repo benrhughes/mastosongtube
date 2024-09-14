@@ -124,7 +124,7 @@ async function main() {
         }
 
         console.log(`Writing ${songLinks.length} song.link URLs to intermediate file...`);
-        writeLinksToFile(songLinks, 'song_links.txt');
+        writeLinksToFile(songLinks);
 
         console.log("Done.");
     } catch (error) {
